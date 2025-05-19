@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: rima603/backprojet:latest
+          image: rima603/backprojet:52
           ports:
             - containerPort: 8080
           envForm:
