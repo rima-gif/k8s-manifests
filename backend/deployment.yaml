@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  bakend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: rima603/backprojet:latest
+          ports:
+            - containerPort: 8080
+          envForm:
+            - configMapRef:
+                name: backend-configMapRef
+          env:
+            - name : SPRING_DATASOURCE_URL
+              valueForm:
+                configMapRef:
+                  name: backend-config
+                  key: SPRING_DATASOURCE_URL
+            - name: SPRING_DATASOURCE_USERNAME
+              valueForm: 
+                configMapRef: 
+                  name: backend-config
+                  key : SPRING_DATASOURCE_PASSWORD

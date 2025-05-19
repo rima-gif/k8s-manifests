@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-Config
+
+data:
+   SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/bankadb
+   SPRING_DATASOURCE_USERNAME: root
+   SPRING_DATASOURCE_PASSWORD: root
+   SPRING_JPA_HIBERNATE_DDL_AUTO: update
