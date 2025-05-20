@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: rima603/frontprojet:58
+          image: rima603/frontprojet:59
           ports:
             - containerPort: 80
