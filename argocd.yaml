@@ -7,31 +7,37 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/rima-gif/k8s-manifests.git'
-    targetRevision: main 
+    targetRevision: main
     path: backend
-  destination: 
+    directory:
+      recurse: true  # Pour traiter tous les fichiers YAML du dossier
+  destination:
     server: 'https://kubernetes.default.svc'
-    namespace: backend
+    namespace: backend  # Assurez-vous que ce namespace existe
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+    - CreateNamespace=true  # Crée automatiquement le namespace si absent
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: frontend-app
   namespace: argocd
-spec: 
+spec:
   project: default
-  source: 
+  source:
     repoURL: 'https://github.com/rima-gif/k8s-manifests.git'
     targetRevision: main
     path: frontend
-  destination: 
+    directory:
+      recurse: true
+  destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
-  syncPolicy: 
-    automated: 
+  syncPolicy:
+    automated:
       prune: true
       selfHeal: true
