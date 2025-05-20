@@ -24,9 +24,12 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: mysql-secret
-                  key: mysql-password
+                  key: MYSQL_ROOT_PASSWORD
             - name: MYSQL_DATABASE
-              value: BankDB
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-config
+                  key: MYSQL_DATABASE
           volumeMounts:
             - name: mysql-persistent-storage
               mountPath: /var/lib/mysql
