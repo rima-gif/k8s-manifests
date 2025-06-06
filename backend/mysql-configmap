@@ -5,4 +5,4 @@ metadata:
   name: mysql-config
   namespace: backend
 data:
-  MYSQL_DATABASE: banckaccount
+  MYSQL_DATABASE: bankaccount
