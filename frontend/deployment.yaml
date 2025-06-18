@@ -16,5 +16,7 @@ spec:
       containers:
         - name: frontend
           image: rima603/bankafront:27
+          imagePullPolicy: always
+
           ports:
             - containerPort: 80
