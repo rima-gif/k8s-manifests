@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: rima603/bankafront:30
+          image: rima603/bankafront:31
           ports:
             - containerPort: 80
